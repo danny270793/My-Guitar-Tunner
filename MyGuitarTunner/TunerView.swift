@@ -29,7 +29,7 @@ struct TunerView: View {
 
                 StringSelectorView(
                     strings: StandardTuning.strings,
-                    detected: viewModel.detectedString
+                    highlighted: viewModel.detectedString
                 )
             }
             .padding()
