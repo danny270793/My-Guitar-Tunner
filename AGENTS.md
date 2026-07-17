@@ -63,8 +63,11 @@ When proposing or creating commits, **always** use this format. If multiple unre
 
 ## Internationalization
 
-- Never hardcode user-facing strings as plain `String`. Use `Text`/`Label`/`LocalizedStringKey` string literals (or a `LocalizedStringKey`-typed value) so Xcode's String Catalog (`MyPills/Localizable.xcstrings`) can extract and translate them.
-- `Text(someString)` where `someString` is a `String` variable is **verbatim** and skips localization entirely — only literal strings, or values explicitly typed `LocalizedStringKey`, get picked up. See `LegalDocumentView.text`/`SettingsView`'s legal copy for the pattern.
+- Never hardcode user-facing text as a plain `String`. Use `Text`/`Label`/`LocalizedStringKey` string literals (or a value explicitly typed `LocalizedStringKey`) so Xcode's String Catalog can extract it — see `NoteDisplayName.swift` and `LegalDocumentView.text` for the pattern when the value is computed from a closed set of options.
+- `Text(someString)` where `someString` is a `String` variable is **verbatim** and skips localization entirely — only literal strings, or values explicitly typed `LocalizedStringKey`, get picked up.
+- All user-facing text must live in the String Catalog at `MyGuitarTunner/Localizable.xcstrings`, following standard iOS String Catalog conventions (the literal English text is the key; see Apple's String Catalog documentation). Don't hand-roll `.strings`/`.stringsdict` files.
+- The app must support **English** (source language) and **Spanish**. Every string added to the catalog needs both an `en` and an `es` entry in `"translated"` state before merging — don't leave new strings in `"new"`/`"needs_review"` state or missing the `es` localization.
+- After adding or changing literal strings in code, resync the catalog (e.g. `xcodebuild -exportLocalizations`) rather than hand-editing keys, to make sure the key text matches exactly what Xcode extracts (this matters especially for interpolated strings with a `specifier:`, where the specifier itself becomes part of the key).
 
 ## UI: Liquid Glass design language
 

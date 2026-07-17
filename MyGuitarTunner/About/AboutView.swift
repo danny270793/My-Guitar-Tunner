@@ -25,7 +25,7 @@ struct AboutView: View {
             }
             .padding()
         }
-        .navigationTitle("About")
+        .navigationTitle(Strings.about)
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
@@ -47,14 +47,14 @@ struct AboutView: View {
                 .font(.system(size: 48))
                 .foregroundStyle(.tint)
 
-            Text("MyGuitarTunner")
+            Text(Strings.appName)
                 .font(.title2.bold())
 
-            Text("Version \(appVersion) (\(buildNumber))")
+            Text(Strings.version(appVersion, build: buildNumber))
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            Text("A simple microphone-based tuner for guitar and other stringed instruments.")
+            Text(Strings.appDescription)
                 .font(.body)
                 .multilineTextAlignment(.center)
                 .foregroundStyle(.secondary)
@@ -66,11 +66,11 @@ struct AboutView: View {
 
     private var developerCard: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Developer")
+            Text(Strings.developer)
                 .font(.headline)
 
             Link(destination: developerProfileURL) {
-                Label("Danny Vaca on GitHub", systemImage: "person.circle")
+                Label(Strings.developerGitHub, systemImage: "person.circle")
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -83,7 +83,7 @@ struct AboutView: View {
             NavigationLink {
                 PrivacyPolicyView()
             } label: {
-                legalRow(title: "Privacy Policy", systemImage: "hand.raised")
+                legalRow(title: Strings.privacyPolicy, systemImage: "hand.raised")
             }
 
             Divider()
@@ -91,7 +91,7 @@ struct AboutView: View {
             NavigationLink {
                 TermsOfServiceView()
             } label: {
-                legalRow(title: "Terms of Service", systemImage: "doc.text")
+                legalRow(title: Strings.termsOfService, systemImage: "doc.text")
             }
         }
         .padding(.vertical, 4)

@@ -27,7 +27,7 @@ private struct StringBadge: View {
     let isDetected: Bool
 
     var body: some View {
-        Text(string.name)
+        Text(Strings.note(string.name))
             .font(.title3.bold())
             .frame(width: 48, height: 48)
             .foregroundStyle(isDetected ? Color.white : Color.primary)
