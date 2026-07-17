@@ -1,0 +1,470 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%.1f Hz" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f Hz"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f Hz"
+          }
+        }
+      }
+    },
+    "A" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A"
+          }
+        }
+      }
+    },
+    "A simple microphone-based tuner for guitar and other stringed instruments." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A simple microphone-based tuner for guitar and other stringed instruments."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un afinador sencillo basado en el micrófono para guitarra y otros instrumentos de cuerda."
+          }
+        }
+      }
+    },
+    "A♯" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A♯"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A♯"
+          }
+        }
+      }
+    },
+    "About" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acerca de"
+          }
+        }
+      }
+    },
+    "B" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "B"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "B"
+          }
+        }
+      }
+    },
+    "C" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C"
+          }
+        }
+      }
+    },
+    "C♯" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C♯"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "C♯"
+          }
+        }
+      }
+    },
+    "D" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D"
+          }
+        }
+      }
+    },
+    "D♯" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D♯"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D♯"
+          }
+        }
+      }
+    },
+    "Danny Vaca on GitHub" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danny Vaca on GitHub"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danny Vaca en GitHub"
+          }
+        }
+      }
+    },
+    "Developer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Developer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollador"
+          }
+        }
+      }
+    },
+    "E" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E"
+          }
+        }
+      }
+    },
+    "F" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F"
+          }
+        }
+      }
+    },
+    "F♯" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F♯"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F♯"
+          }
+        }
+      }
+    },
+    "G" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G"
+          }
+        }
+      }
+    },
+    "G♯" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G♯"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G♯"
+          }
+        }
+      }
+    },
+    "Guitar Tuner" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guitar Tuner"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afinador de Guitarra"
+          }
+        }
+      }
+    },
+    "In tune" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In tune"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afinada"
+          }
+        }
+      }
+    },
+    "Last updated: July 16, 2026\n\nBy using MyGuitarTunner, you agree to the following terms.\n\nUse of the app\nMyGuitarTunner is provided to help you tune stringed instruments using your device's microphone. You are responsible for using the app in a safe and appropriate manner.\n\nNo warranty\nMyGuitarTunner is provided \"as is,\" without warranty of any kind, express or implied, including but not limited to the accuracy of pitch detection. The developer is not liable for any damage, loss, or missed performance resulting from use of the app.\n\nIntellectual property\nAll app design, code, and content are the property of the developer unless otherwise noted.\n\nChanges to these terms\nThese terms may be updated from time to time. Continued use of the app after changes constitutes acceptance of the revised terms.\n\nContact\nQuestions about these terms can be directed to the developer via GitHub: https://github.com/danny270793" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last updated: July 16, 2026\n\nBy using MyGuitarTunner, you agree to the following terms.\n\nUse of the app\nMyGuitarTunner is provided to help you tune stringed instruments using your device's microphone. You are responsible for using the app in a safe and appropriate manner.\n\nNo warranty\nMyGuitarTunner is provided \"as is,\" without warranty of any kind, express or implied, including but not limited to the accuracy of pitch detection. The developer is not liable for any damage, loss, or missed performance resulting from use of the app.\n\nIntellectual property\nAll app design, code, and content are the property of the developer unless otherwise noted.\n\nChanges to these terms\nThese terms may be updated from time to time. Continued use of the app after changes constitutes acceptance of the revised terms.\n\nContact\nQuestions about these terms can be directed to the developer via GitHub: https://github.com/danny270793"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última actualización: 16 de julio de 2026\n\nAl usar MyGuitarTunner, aceptas los siguientes términos.\n\nUso de la aplicación\nMyGuitarTunner se proporciona para ayudarte a afinar instrumentos de cuerda usando el micrófono de tu dispositivo. Eres responsable de usar la aplicación de forma segura y adecuada.\n\nSin garantía\nMyGuitarTunner se proporciona \"tal cual\", sin garantía de ningún tipo, expresa o implícita, incluyendo entre otras la precisión de la detección de tono. El desarrollador no es responsable de ningún daño, pérdida o actuación fallida derivada del uso de la aplicación.\n\nPropiedad intelectual\nTodo el diseño, código y contenido de la aplicación son propiedad del desarrollador salvo que se indique lo contrario.\n\nCambios a estos términos\nEstos términos pueden actualizarse de vez en cuando. El uso continuado de la aplicación después de los cambios constituye la aceptación de los términos revisados.\n\nContacto\nLas preguntas sobre estos términos pueden dirigirse al desarrollador a través de GitHub: https://github.com/danny270793"
+          }
+        }
+      }
+    },
+    "Last updated: July 16, 2026\n\nMyGuitarTunner is designed with your privacy in mind.\n\nMicrophone\nMyGuitarTunner uses your device's microphone solely to detect the pitch of the instrument you are tuning. Audio is analyzed entirely on your device in real time and is never recorded, saved, or transmitted anywhere.\n\nData collection\nMyGuitarTunner does not collect, store, or share any personal data. The app does not use analytics, advertising, or third-party tracking, and it does not require an account.\n\nNetwork access\nMyGuitarTunner does not send any data over the network.\n\nChanges to this policy\nIf this policy changes, the \"Last updated\" date above will be revised accordingly.\n\nContact\nQuestions about this policy can be directed to the developer via GitHub: https://github.com/danny270793" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last updated: July 16, 2026\n\nMyGuitarTunner is designed with your privacy in mind.\n\nMicrophone\nMyGuitarTunner uses your device's microphone solely to detect the pitch of the instrument you are tuning. Audio is analyzed entirely on your device in real time and is never recorded, saved, or transmitted anywhere.\n\nData collection\nMyGuitarTunner does not collect, store, or share any personal data. The app does not use analytics, advertising, or third-party tracking, and it does not require an account.\n\nNetwork access\nMyGuitarTunner does not send any data over the network.\n\nChanges to this policy\nIf this policy changes, the \"Last updated\" date above will be revised accordingly.\n\nContact\nQuestions about this policy can be directed to the developer via GitHub: https://github.com/danny270793"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Última actualización: 16 de julio de 2026\n\nMyGuitarTunner está diseñada pensando en tu privacidad.\n\nMicrófono\nMyGuitarTunner utiliza el micrófono de tu dispositivo únicamente para detectar el tono del instrumento que estás afinando. El audio se analiza completamente en tu dispositivo en tiempo real y nunca se graba, guarda ni transmite a ningún lugar.\n\nRecopilación de datos\nMyGuitarTunner no recopila, almacena ni comparte ningún dato personal. La aplicación no utiliza analítica, publicidad ni rastreo de terceros, y no requiere una cuenta.\n\nAcceso a la red\nMyGuitarTunner no envía ningún dato a través de la red.\n\nCambios a esta política\nSi esta política cambia, la fecha de \"Última actualización\" indicada arriba se actualizará en consecuencia.\n\nContacto\nLas preguntas sobre esta política pueden dirigirse al desarrollador a través de GitHub: https://github.com/danny270793"
+          }
+        }
+      }
+    },
+    "Microphone access is required to tune your guitar. Enable it in Settings." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Microphone access is required to tune your guitar. Enable it in Settings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se requiere acceso al micrófono para afinar tu guitarra. Actívalo en Ajustes."
+          }
+        }
+      }
+    },
+    "MyGuitarTunner" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MyGuitarTunner"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MyGuitarTunner"
+          }
+        }
+      }
+    },
+    "Play a note on your guitar" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play a note on your guitar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca una nota en tu guitarra"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Política de Privacidad"
+          }
+        }
+      }
+    },
+    "Terms of Service" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terms of Service"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Términos de Servicio"
+          }
+        }
+      }
+    },
+    "Tune down" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tune down"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baja el tono"
+          }
+        }
+      }
+    },
+    "Tune up" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tune up"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sube el tono"
+          }
+        }
+      }
+    },
+    "Version %@ (%@)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %1$@ (%2$@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión %1$@ (%2$@)"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
