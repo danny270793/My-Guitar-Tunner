@@ -45,4 +45,17 @@ enum NoteMapper {
             cents: cents
         )
     }
+
+    /// Compares a detected frequency against a specific guitar string instead of the nearest
+    /// chromatic note, avoiding octave-detection mistakes when a target string is known.
+    static func reading(for frequency: Double, target: GuitarString) -> TunerReading {
+        let cents = 1200 * log2(frequency / target.frequency)
+        return TunerReading(
+            noteName: target.name,
+            octave: target.octave,
+            frequency: frequency,
+            targetFrequency: target.frequency,
+            cents: cents
+        )
+    }
 }

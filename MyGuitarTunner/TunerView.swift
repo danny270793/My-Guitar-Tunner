@@ -26,6 +26,13 @@ struct TunerView: View {
                 card
 
                 Spacer()
+
+                StringSelectorView(
+                    strings: StandardTuning.strings,
+                    selected: viewModel.selectedString,
+                    detected: viewModel.detectedString,
+                    onSelect: viewModel.selectString
+                )
             }
             .padding()
         }
