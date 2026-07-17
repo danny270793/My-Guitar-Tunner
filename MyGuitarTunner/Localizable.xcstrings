@@ -497,22 +497,6 @@
         }
       }
     },
-    "Mode" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Modo"
-          }
-        }
-      }
-    },
     "Tap a string to hear its note" : {
       "localizations" : {
         "en" : {
@@ -525,6 +509,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Toca una cuerda para escuchar su nota"
+          }
+        }
+      }
+    },
+    "Detects pitch from your guitar automatically" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detects pitch from your guitar automatically"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detecta el tono de tu guitarra automáticamente"
+          }
+        }
+      }
+    },
+    "Play a reference tone for each string" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Play a reference tone for each string"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduce un tono de referencia para cada cuerda"
           }
         }
       }
