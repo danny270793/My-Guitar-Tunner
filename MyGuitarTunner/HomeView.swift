@@ -18,6 +18,13 @@ struct HomeView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 28) {
+                Image("AppIconDisplay")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 88, height: 88)
+                    .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                    .shadow(radius: 8)
+
                 Text(Strings.guitarTunerTitle)
                     .font(.largeTitle.bold())
 
