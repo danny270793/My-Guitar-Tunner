@@ -9,7 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TunerView()
+        NavigationStack {
+            TunerView()
+                .toolbar {
+                    ToolbarItem(placement: .primaryAction) {
+                        NavigationLink {
+                            AboutView()
+                        } label: {
+                            Image(systemName: "info.circle")
+                        }
+                    }
+                }
+        }
     }
 }
 
