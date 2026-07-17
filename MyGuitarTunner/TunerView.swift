@@ -18,7 +18,7 @@ struct TunerView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 28) {
-                Text("Guitar Tuner")
+                Text(Strings.guitarTunerTitle)
                     .font(.largeTitle.bold())
 
                 Spacer()
@@ -50,26 +50,26 @@ struct TunerView: View {
             messageCard(
                 systemImage: "mic.slash.fill",
                 tint: .red,
-                message: "Microphone access is required to tune your guitar. Enable it in Settings."
+                message: Strings.microphoneAccessRequired
             )
         } else {
             messageCard(
                 systemImage: "waveform",
                 tint: .secondary,
-                message: "Play a note on your guitar"
+                message: Strings.playANote
             )
         }
     }
 
     private func readingCard(_ reading: TunerReading) -> some View {
         VStack(spacing: 20) {
-            Text(reading.noteName)
+            Text(Strings.note(reading.noteName))
                 .font(.system(size: 96, weight: .bold, design: .rounded))
                 .contentTransition(.numericText())
                 .foregroundStyle(reading.isInTune ? .green : .primary)
                 .animation(.easeInOut(duration: 0.2), value: reading.isInTune)
 
-            Text("\(reading.frequency, specifier: "%.1f") Hz")
+            Text(Strings.hz(reading.frequency))
                 .font(.title3.monospacedDigit())
                 .foregroundStyle(.secondary)
 
@@ -87,13 +87,13 @@ struct TunerView: View {
     private func directionIndicator(for reading: TunerReading) -> some View {
         Group {
             if reading.isInTune {
-                Label("In tune", systemImage: "checkmark.circle.fill")
+                Label(Strings.inTune, systemImage: "checkmark.circle.fill")
                     .foregroundStyle(.green)
             } else if reading.isFlat {
-                Label("Tune up", systemImage: "arrow.up.circle.fill")
+                Label(Strings.tuneUp, systemImage: "arrow.up.circle.fill")
                     .foregroundStyle(.orange)
             } else {
-                Label("Tune down", systemImage: "arrow.down.circle.fill")
+                Label(Strings.tuneDown, systemImage: "arrow.down.circle.fill")
                     .foregroundStyle(.orange)
             }
         }
