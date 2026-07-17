@@ -5,60 +5,72 @@
 
 import SwiftUI
 
-/// Manual mode: just the six strings. Tapping one plays its reference tone.
+/// Manual mode: same look as auto tuning, but the string row is the control — tapping
+/// a string plays its reference tone instead of the app listening to the microphone.
 struct ManualTunerView: View {
     @StateObject private var viewModel = ManualTunerViewModel()
 
     var body: some View {
-        VStack(spacing: 28) {
-            Spacer()
+        ZStack {
+            LinearGradient(
+                colors: [Color.indigo.opacity(0.35), Color.black.opacity(0.05)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
-            Text(Strings.tapAStringToHear)
-                .font(.title3)
-                .foregroundStyle(.secondary)
+            VStack(spacing: 28) {
+                Text(Strings.guitarTunerTitle)
+                    .font(.largeTitle.bold())
 
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 20) {
-                ForEach(StandardTuning.strings) { string in
-                    ManualStringButton(
-                        string: string,
-                        isPlaying: viewModel.playingString == string,
-                        action: { viewModel.play(string) }
-                    )
-                }
+                Spacer()
+
+                card
+
+                Spacer()
+
+                StringSelectorView(
+                    strings: StandardTuning.strings,
+                    highlighted: viewModel.playingString,
+                    onSelect: { string in viewModel.play(string) }
+                )
             }
-            .frame(maxWidth: 320)
-
-            Spacer()
+            .padding()
         }
-        .padding()
         .onDisappear {
             viewModel.stop()
         }
     }
-}
 
-private struct ManualStringButton: View {
-    let string: GuitarString
-    let isPlaying: Bool
-    let action: () -> Void
+    @ViewBuilder
+    private var card: some View {
+        if let playingString = viewModel.playingString {
+            VStack(spacing: 20) {
+                Text(Strings.note(playingString.name))
+                    .font(.system(size: 96, weight: .bold, design: .rounded))
+                    .foregroundStyle(.green)
 
-    var body: some View {
-        Button(action: action) {
-            VStack(spacing: 4) {
-                Text(Strings.note(string.name))
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
-                Text(Strings.hz(string.frequency))
-                    .font(.caption)
+                Text(Strings.hz(playingString.frequency))
+                    .font(.title3.monospacedDigit())
+                    .foregroundStyle(.secondary)
             }
-            .frame(width: 96, height: 96)
-            .foregroundStyle(isPlaying ? Color.white : Color.primary)
+            .padding(36)
+            .frame(maxWidth: 360)
+            .glassEffect(.regular, in: .rect(cornerRadius: 32))
+        } else {
+            VStack(spacing: 16) {
+                Image(systemName: "hand.tap.fill")
+                    .font(.system(size: 48))
+                    .foregroundStyle(.secondary)
+                Text(Strings.tapAStringToHear)
+                    .font(.title3)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.secondary)
+            }
+            .padding(48)
+            .frame(maxWidth: 360)
+            .glassEffect(.regular, in: .rect(cornerRadius: 32))
         }
-        .buttonStyle(.plain)
-        .glassEffect(
-            isPlaying ? .regular.tint(.green) : .regular,
-            in: .circle
-        )
-        .animation(.spring(response: 0.25, dampingFraction: 0.7), value: isPlaying)
     }
 }
 
