@@ -79,8 +79,8 @@ final class TonePlayer {
     /// Low guitar strings (E2 82Hz, A2 110Hz) barely register as a bare sine on a phone
     /// speaker; layering in harmonics keeps the pitch clearly audible even where the
     /// fundamental itself is weak.
-    private static let harmonicWeights: [Float] = [1.0, 0.5, 0.33, 0.22]
-    private static let masterGain: Float = 0.95
+    nonisolated private static let harmonicWeights: [Float] = [1.0, 0.5, 0.33, 0.22]
+    nonisolated private static let masterGain: Float = 0.95
 
     /// Renders a harmonic-enriched tone into the buffer. Runs on the real-time audio
     /// thread, so it touches only the plain `ToneOscillator` box, never actor-isolated state.
