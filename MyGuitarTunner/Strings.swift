@@ -37,6 +37,11 @@ enum Strings {
     static let tuneUp: LocalizedStringKey = "Tune up"
     static let tuneDown: LocalizedStringKey = "Tune down"
 
+    static let tunerModeLabel: LocalizedStringKey = "Mode"
+    static let autoMode: LocalizedStringKey = "Auto"
+    static let manualMode: LocalizedStringKey = "Manual"
+    static let tapAStringToHear: LocalizedStringKey = "Tap a string to hear its note"
+
     static func hz(_ frequency: Double) -> LocalizedStringKey {
         "\(frequency, specifier: "%.1f") Hz"
     }
