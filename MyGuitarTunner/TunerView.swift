@@ -18,7 +18,7 @@ struct TunerView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 28) {
-                Text(Strings.guitarTunerTitle)
+                Text(Strings.autoMode)
                     .font(.largeTitle.bold())
 
                 Spacer()
