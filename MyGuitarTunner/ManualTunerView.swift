@@ -20,7 +20,7 @@ struct ManualTunerView: View {
             .ignoresSafeArea()
 
             VStack(spacing: 28) {
-                Text(Strings.guitarTunerTitle)
+                Text(Strings.manualMode)
                     .font(.largeTitle.bold())
 
                 Spacer()
