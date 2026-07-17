@@ -5,31 +5,87 @@
 
 import SwiftUI
 
-/// Root screen: lets the user switch between auto (continuous mic-based tuning) and
-/// manual (tap a string to hear its reference tone) modes.
+/// Landing screen: pick auto (continuous mic-based tuning) or manual (tap a string to
+/// hear its reference tone) mode, each pushed as its own screen.
 struct HomeView: View {
-    @State private var mode: TunerMode = .auto
-
     var body: some View {
-        VStack(spacing: 16) {
-            Picker(Strings.tunerModeLabel, selection: $mode) {
-                Text(Strings.autoMode).tag(TunerMode.auto)
-                Text(Strings.manualMode).tag(TunerMode.manual)
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal)
-            .padding(.top)
+        ZStack {
+            LinearGradient(
+                colors: [Color.indigo.opacity(0.35), Color.black.opacity(0.05)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
 
-            switch mode {
-            case .auto:
-                TunerView()
-            case .manual:
-                ManualTunerView()
+            VStack(spacing: 28) {
+                Text(Strings.guitarTunerTitle)
+                    .font(.largeTitle.bold())
+
+                Spacer()
+
+                VStack(spacing: 20) {
+                    NavigationLink {
+                        TunerView()
+                    } label: {
+                        ModeCard(
+                            systemImage: "waveform",
+                            title: Strings.autoMode,
+                            subtitle: Strings.autoModeDescription
+                        )
+                    }
+
+                    NavigationLink {
+                        ManualTunerView()
+                    } label: {
+                        ModeCard(
+                            systemImage: "hand.tap.fill",
+                            title: Strings.manualMode,
+                            subtitle: Strings.manualModeDescription
+                        )
+                    }
+                }
+                .buttonStyle(.plain)
+
+                Spacer()
             }
+            .padding()
         }
     }
 }
 
+private struct ModeCard: View {
+    let systemImage: String
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
+
+    var body: some View {
+        HStack(spacing: 16) {
+            Image(systemName: systemImage)
+                .font(.system(size: 28))
+                .frame(width: 52, height: 52)
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.title2.bold())
+                Text(subtitle)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+            }
+
+            Spacer()
+
+            Image(systemName: "chevron.right")
+                .foregroundStyle(.secondary)
+        }
+        .foregroundStyle(Color.primary)
+        .padding(20)
+        .frame(maxWidth: 360)
+        .glassEffect(.regular, in: .rect(cornerRadius: 24))
+    }
+}
+
 #Preview {
-    HomeView()
+    NavigationStack {
+        HomeView()
+    }
 }
