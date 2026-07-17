@@ -5,16 +5,15 @@
 
 import AVFoundation
 
-/// Plays a short reference sine tone at a given frequency, so a user can hear what a
-/// string should sound like when they tap it.
+/// Plays a reference sine tone at a given frequency, so a user can hear what a string
+/// should sound like. Keeps sounding until `stop()` is called.
 @MainActor
 final class TonePlayer {
     private let engine = AVAudioEngine()
     private var sourceNode: AVAudioSourceNode?
-    private var stopTask: Task<Void, Never>?
     private var onFinish: (() -> Void)?
 
-    func play(frequency: Double, duration: TimeInterval = 1.5, onFinish: (() -> Void)? = nil) {
+    func play(frequency: Double, onFinish: (() -> Void)? = nil) {
         stop()
 
         #if os(iOS)
@@ -50,18 +49,9 @@ final class TonePlayer {
 
         sourceNode = node
         self.onFinish = onFinish
-
-        stopTask = Task { [weak self] in
-            try? await Task.sleep(for: .seconds(duration))
-            guard !Task.isCancelled else { return }
-            self?.stop()
-        }
     }
 
     func stop() {
-        stopTask?.cancel()
-        stopTask = nil
-
         let finish = onFinish
         onFinish = nil
 
