@@ -1,11 +1,16 @@
-# Agent instructions for MyPills
+# Agent instructions
 
-These rules apply to any AI agent (or human) making changes in this repo.
+Instructions for AI and human collaborators using tools such as **Cursor** and **Claude** in this repository.
 
-## Workflow conventions
+## Git commits and branches: explicit user approval is required
 
-- Commit related changes file by file rather than one large commit, unless told otherwise.
-- Do not commit, create branches, or open PRs/MRs until the user explicitly asks for it.
+**Never commit changes to git unless the user explicitly asks you to.** Make all code changes, then wait for the user to request a commit before running any `git commit` command. Proposing a commit message is fine; running the commit is not.
+
+**Never create a git branch unless the user explicitly asks you to.** Do not run `git branch` or `git checkout -b` (or equivalent) on your own, even to prepare for a commit or Merge Request.
+
+## Pull Requests: use the project template
+
+When creating a GitHub Pull Request, always fill in the description using [`.github/PULL_REQUEST_TEMPLATE.md`](.github/PULL_REQUEST_TEMPLATE.md). GitHub loads that file automatically. Replace each `<!-- … -->` comment with concrete content based on the actual changes. Do not leave placeholder comments in the final description.
 
 ## Commits: Conventional Commits (required)
 
@@ -21,69 +26,53 @@ Every commit message **must** follow [Conventional Commits](https://www.conventi
 [optional footer(s)]
 ```
 
-- **Description:** imperative mood, lowercase start (no trailing period required but stay consistent).
-- **Header max length:** keep the first line ≤ **72** characters when practical.
-- Use the body for the "why" when it's not obvious.
+- **Description:** imperative mood, lowercase start (a trailing period is not required, but stay consistent).
+- **Maximum header length:** keep the first line at ≤ **72** characters when possible.
 
 ### Allowed types (common)
 
 Use one of: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`.
 
-- **`feat`:** new behavior or capability for users.
+- **`feat`:** new user-facing behavior or capability.
 - **`fix`:** a bug fix.
 - **`docs`:** documentation only.
-- **`chore`:** maintenance that is not a user-facing feature or fix (deps, config, tooling).
+- **`chore`:** maintenance that is not a user-facing feature or fix (dependencies, configuration, tooling).
 - **`ci`:** CI/CD pipeline or automation only.
 
 ### Scope (optional)
 
-A noun in parentheses after the type, e.g. `fix(sync): handle null connection string`.
+A noun in parentheses after the type, e.g. `fix(postgres): handle null connection string`.
 
 ### Breaking changes
 
-Either:
+Either of:
 
-- append **`!`** after the type/scope: `feat(api)!: remove legacy endpoint`, or
+- add **`!`** after the type/scope: `feat(api)!: remove legacy endpoint`, or
 - add a footer: `BREAKING CHANGE: <what changed and what to do>`.
 
 ### Examples (valid)
 
-- `feat(pills): add reminder snooze option`
-- `fix(sync): handle nil auth token on refresh`
-- `docs: clarify localization workflow in readme`
-- `chore: bump swift toolchain version`
+- `feat(examples): add from-code compose sample`
+- `fix(ci): use non-tls dind for self-hosted runners`
+- `docs: clarify WAL-G vs backup-push in readme`
+- `chore: bump gitlab-ci docker image tags`
 
 ### Examples (invalid — do not use)
 
-- `Update view` (missing type)
+- `Update dockerfile` (missing type)
 - `Fixed bug` (not conventional)
 - `WIP` / `misc changes`
 
-When proposing or creating commits, **always** use this format. If multiple unrelated changes exist, **split into multiple commits** rather than one vague message.
+When proposing or creating commits, **always** use this format. If there are multiple unrelated changes, **split them into several commits** instead of one vague message.
 
-## Internationalization
+## Architecture
 
-- Never hardcode user-facing text as a plain `String`. Use `Text`/`Label`/`LocalizedStringKey` string literals (or a value explicitly typed `LocalizedStringKey`) so Xcode's String Catalog can extract it — see `NoteDisplayName.swift` and `LegalDocumentView.text` for the pattern when the value is computed from a closed set of options.
-- `Text(someString)` where `someString` is a `String` variable is **verbatim** and skips localization entirely — only literal strings, or values explicitly typed `LocalizedStringKey`, get picked up.
-- All user-facing text must live in the String Catalog at `MyGuitarTunner/Localizable.xcstrings`, following standard iOS String Catalog conventions (the literal English text is the key; see Apple's String Catalog documentation). Don't hand-roll `.strings`/`.stringsdict` files.
-- The app must support **English** (source language) and **Spanish**. Every string added to the catalog needs both an `en` and an `es` entry in `"translated"` state before merging — don't leave new strings in `"new"`/`"needs_review"` state or missing the `es` localization.
-- After adding or changing literal strings in code, resync the catalog (e.g. `xcodebuild -exportLocalizations`) rather than hand-editing keys, to make sure the key text matches exactly what Xcode extracts (this matters especially for interpolated strings with a `specifier:`, where the specifier itself becomes part of the key).
+The app follows the same layout as the reference Wallet app:
 
-## UI: Liquid Glass design language
-
-- All UI must follow Apple's Liquid Glass design guidelines (introduced with iOS 26 / macOS Tahoe) — this is the required look and feel across the app, not an optional style.
-- Prefer native SwiftUI materials and system components (e.g. `.glassEffect`, `.background(.thinMaterial)`/`.regularMaterial`/`.ultraThinMaterial`, standard `Button`, `TabView`, `NavigationStack`, toolbars, sheets) over custom-drawn chrome, so surfaces automatically pick up the translucent, refractive glass treatment, dynamic tinting, and light/dark adaptation.
-- Avoid flat, opaque custom backgrounds for chrome-like elements (toolbars, tab bars, floating controls, sheets, sidebars) — these should read as glass: translucent, layered over content, reacting to scrolling/content behind them.
-- Respect system concentricity and corner radii (`.containerShape`, `ContainerRelativeShape`, continuous corner radii) instead of hardcoded corner values, so custom components nest correctly inside glass containers.
-- Check new/changed screens in both light and dark mode, and under Reduce Transparency / Increase Contrast accessibility settings, since glass materials must stay legible under those.
-- When in doubt, match the stock look of the equivalent system control (tab bar, nav bar, sheet, alert) rather than inventing a custom visual treatment.
-
-## Loading state for `.task`
-
-- Every `.task { await store.loadXXX() }` used to load data when a view first appears must show a loading indicator (`ProgressView`) while the load is in flight — don't let the view flash empty/stale content.
-- Follow the existing pattern: an `AppStore.hasLoaded...` flag (`hasLoadedFolders`, `hasLoadedPills(for:)`, `hasLoadedShares(for:)`) gates the view's body, as seen in `ContentView`, `PillsListView`, and `FolderShareView`.
-
-## Simulated network delay in dev
-
-- All remote (Supabase) requests must go through `DevNetworkDelay.simulate()` in debug builds, which adds a random 3–5 second delay. This makes loading states visible and testable during development, and is a no-op in release builds.
-- New network call sites should call `await DevNetworkDelay.simulate()` right before the `URLSession` call, matching `SupabaseClient.send` and `AuthService.send`/`signOut`/`updatePassword`.
+- `lib/main.dart` — bootstraps dependency injection, persisted preferences, and the biometric lock gate (no accounts: when biometric unlock is enabled the app locks on cold start and on resume).
+- `lib/router.dart` — `go_router` configuration; starts on the mode picker (`/`), with auto (`/auto`) and manual (`/manual`) tuners, no auth redirects.
+- `lib/core/` — cross-cutting code: `di/injection.dart` (`get_it` registrations), `locale/`, `theme/`, and `security/` `ChangeNotifier` controllers, `logger/`.
+- `lib/features/<feature>/` — `data/{datasources,repositories}`, `domain/{entities,repositories,usecases}`, `presentation/{bloc,cubit,pages}`. State management uses `flutter_bloc` (Cubit/Bloc); features: `tuner` (pitch detection by autocorrelation on `record` PCM frames, reference tones generated as WAV and played with `audioplayers`). Preferences are local (`SharedPreferences`); the app has no backend, accounts or sign-in, and audio is never stored.
+- `lib/pages/` — top-level screens (home, auto tuner, manual tuner, settings, legal info).
+- `lib/widgets/` — reusable widgets (bottom sheets, string selector, cents meter, tuner card, developer info).
+- `lib/l10n/` — ARB files plus the generated `app_localizations*.dart` (`flutter gen-l10n`, see `l10n.yaml`).
