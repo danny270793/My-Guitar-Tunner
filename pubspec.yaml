@@ -47,6 +47,7 @@ dependencies:
   equatable: ^3.0.0
   record: ^7.1.1
   audioplayers: ^6.8.1
+  firebase_core: ^5.1.0
 
 dev_dependencies:
   flutter_test:

@@ -53,3 +53,6 @@ app.*.map.json
 # The directory itself (and .gitkeep) stays tracked so pubspec.yaml's
 # "assets/certs/" entry doesn't break a fresh checkout's build.
 assets/certs/*.pem
+
+# Firebase App Distribution config (app IDs, tester groups)
+scripts/.env.deploy
